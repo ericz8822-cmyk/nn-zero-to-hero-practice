@@ -26,7 +26,7 @@ class Neuron(Module):
         return self.w + [self.b]
 
     def __repr__(self):
-        return f"{"tanh" if self.nonlin else "Linear"} for a Neuron with {len(self.x)} weight(s)"
+        return f"{"tanh" if self.nonlin else "Linear"} for a Neuron with {len(self.w)} weight(s)"
 
 class Layer(Module):
 
