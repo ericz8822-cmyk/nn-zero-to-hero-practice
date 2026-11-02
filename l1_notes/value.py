@@ -3,8 +3,9 @@ class Value:
     """ stores a singe scalar value and its gradient """
 
     # the major functions
-    def __init__(self, data, _children = (), _op = ''):
+    def __init__(self, data, _children = (), _op = '', label = ''):
         self.data = data
+        self.label = label
         self.grad = 0
         # internal variables used for autograd graph construction
         self._backward = lambda: None
