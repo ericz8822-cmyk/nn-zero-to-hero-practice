@@ -34,7 +34,7 @@ class Batchnorm1d:
         xmean = x.mean(0, keepdims=True)
         xstd = x.std(0, keepdims=True)
         x_gaussian = (x - xmean) / torch.sqrt(xstd**2 + self.eps)
-        self.out = self.gamma @ x_gaussian + self.beta
+        self.out = self.gamma * x_gaussian + self.beta
         # updating the buffers
         if self.training:
             self.running_mean = (1-self.momentum)*self.running_mean + self.moemntum*xmean
