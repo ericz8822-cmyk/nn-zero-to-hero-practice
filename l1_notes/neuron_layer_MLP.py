@@ -1,6 +1,6 @@
 # the data structures built on Class Value
 import random 
-from l1_notes.value import Value
+from value import Value
 
 class Module:
 
