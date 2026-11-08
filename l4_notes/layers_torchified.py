@@ -37,7 +37,7 @@ class Batchnorm1d:
         self.out = self.gamma * x_gaussian + self.beta
         # updating the buffers
         if self.training:
-            self.running_mean = (1-self.momentum)*self.running_mean + self.moemntum*xmean
+            self.running_mean = (1-self.momentum)*self.running_mean + self.momentum*xmean
             self.running_std = (1-self.momentum)*self.running_std + self.momentum*xstd
         return self.out
 
