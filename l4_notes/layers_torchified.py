@@ -31,8 +31,12 @@ class Batchnorm1d:
 
     def __call__(self,x):
         # calculate the forward pass
-        xmean = x.mean(0, keepdims=True)
-        xstd = x.std(0, keepdims=True)
+        if self.training:
+            xmean = x.mean(0, keepdims=True)
+            xstd = x.std(0, keepdims=True)
+        else:
+            xmean = self.running_mean
+            xstd = self.running_std
         x_gaussian = (x - xmean) / torch.sqrt(xstd**2 + self.eps)
         self.out = self.gamma * x_gaussian + self.beta
         # updating the buffers
